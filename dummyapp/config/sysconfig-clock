@@ -1,0 +1,5 @@
+# copied from ws01.lhr1.digitalwindow.com for backward compatibility
+# it should be ideally changed to UTC
+ZONE="Europe/London"
+UTC=false
+ARC=false

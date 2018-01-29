@@ -1,0 +1,34 @@
+version: "3.4"
+
+networks:
+ hostnet:
+  external:
+   name: host
+ default:
+  driver: overlay
+
+services:
+ dummyapp:
+   image: dummyapp
+
+   networks:
+     - default
+
+   ports:
+     - 0.0.0.0:80:80
+   stop_grace_period: 1h
+   healthcheck:
+     test: curl -f http://localhost/ || exit 1
+     interval: 5s
+     timeout: 2s
+     retries: 2
+     
+   deploy:
+     mode: replicated
+     replicas: 1
+     restart_policy:
+       condition: any
+     update_config:
+       parallelism: 1
+#       failure_action: rollback
+       order: start-first

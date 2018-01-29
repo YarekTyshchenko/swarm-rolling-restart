@@ -2,6 +2,10 @@ build:
 	docker build -t dummyapp ./dummyapp/
 	docker build -t helper ./helper/
 
+.PHONY: run
+run:
+	docker run --rm -it dummyapp bash
+
 start: start-helper start-dummyapp
 
 stop: stop-dummyapp stop-helper
