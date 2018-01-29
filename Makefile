@@ -1,7 +1,9 @@
 build:
 	docker build -t dummyapp ./dummyapp/
 	docker build -t helper ./helper/
-
+.PHONY: fuck
+fuck:
+	make build; docker rm -vf foo; docker run --name foo -d -p 80:80 dummyapp
 .PHONY: run
 run:
 	docker run --rm -it dummyapp bash
