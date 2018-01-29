@@ -17,11 +17,11 @@ services:
    ports:
      - 0.0.0.0:80:80
    stop_grace_period: 1h
-   healthcheck:
-     test: curl -f http://localhost/ || exit 1
-     interval: 5s
-     timeout: 2s
-     retries: 2
+   # healthcheck:
+     # test: curl -f http://localhost/ || exit 1
+     # interval: 5s
+     # timeout: 2s
+     # retries: 2
      
    deploy:
      mode: replicated
