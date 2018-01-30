@@ -37,4 +37,7 @@ EXPOSE 80
 EXPOSE 444
 EXPOSE 8080
 
-CMD ["/init"]
+STOPSIGNAL SIGWINCH
+
+#CMD ["/init"]
+CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
