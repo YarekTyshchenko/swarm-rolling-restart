@@ -21,4 +21,7 @@ swarm: stop-swarm
 run:
 	docker run --rm -it dummyapp bash
 
-PHONY: build
+clean:
+	docker rmi dummyapp
+
+PHONY: build clean
